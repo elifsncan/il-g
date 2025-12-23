@@ -14,7 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      arac: {
+      Arac: {
         Row: {
           arac_tur_adi: string | null
           arac_tur_id: number
@@ -29,7 +29,7 @@ export type Database = {
         }
         Relationships: []
       }
-      isletme: {
+      Isletme: {
         Row: {
           isletme_ad: string | null
           isletme_id: number
@@ -44,7 +44,7 @@ export type Database = {
         }
         Relationships: []
       }
-      isletme_arac: {
+      Isletme_arac: {
         Row: {
           adet: number | null
           arac_tur_id: number | null
@@ -65,22 +65,22 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "isletme_arac_arac_tur_id_fkey"
+            foreignKeyName: "Isletme_arac_arac_tur_id_fkey"
             columns: ["arac_tur_id"]
             isOneToOne: false
-            referencedRelation: "arac"
+            referencedRelation: "Arac"
             referencedColumns: ["arac_tur_id"]
           },
           {
-            foreignKeyName: "isletme_arac_isletme_id_fkey"
+            foreignKeyName: "Isletme_arac_isletme_id_fkey"
             columns: ["isletme_id"]
             isOneToOne: false
-            referencedRelation: "isletme"
+            referencedRelation: "Isletme"
             referencedColumns: ["isletme_id"]
           },
         ]
       }
-      yangin_2023: {
+      Yangin_2023: {
         Row: {
           agac_tur: string | null
           isletme_id: number | null
@@ -110,15 +110,15 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "yangin_2023_isletme_id_fkey"
+            foreignKeyName: "Yangin_2023_isletme_id_fkey"
             columns: ["isletme_id"]
             isOneToOne: false
-            referencedRelation: "isletme"
+            referencedRelation: "Isletme"
             referencedColumns: ["isletme_id"]
           },
         ]
       }
-      yangin_2024: {
+      Yangin_2024: {
         Row: {
           agac_tur: string | null
           isletme_id: number | null
@@ -148,15 +148,15 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "yangin_2024_isletme_id_fkey"
+            foreignKeyName: "Yangin_2024_isletme_id_fkey"
             columns: ["isletme_id"]
             isOneToOne: false
-            referencedRelation: "isletme"
+            referencedRelation: "Isletme"
             referencedColumns: ["isletme_id"]
           },
         ]
       }
-      yangin_2025: {
+      Yangin_2025: {
         Row: {
           agac_tur: string | null
           isletme_id: number | null
@@ -186,15 +186,15 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "yangin_2025_isletme_id_fkey"
+            foreignKeyName: "Yangin_2025_isletme_id_fkey"
             columns: ["isletme_id"]
             isOneToOne: false
-            referencedRelation: "isletme"
+            referencedRelation: "Isletme"
             referencedColumns: ["isletme_id"]
           },
         ]
       }
-      yangin_arac_2023: {
+      Yangin_arac_2023: {
         Row: {
           adet: number | null
           arac_tur_id: number | null
@@ -215,22 +215,22 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "yangin_arac_2023_arac_tur_id_fkey"
+            foreignKeyName: "Yangin_arac_2023_arac_tur_id_fkey"
             columns: ["arac_tur_id"]
             isOneToOne: false
-            referencedRelation: "arac"
+            referencedRelation: "Arac"
             referencedColumns: ["arac_tur_id"]
           },
           {
-            foreignKeyName: "yangin_arac_2023_yangin_id_fkey"
+            foreignKeyName: "Yangin_arac_2023_yangin_id_fkey"
             columns: ["yangin_id"]
             isOneToOne: false
-            referencedRelation: "yangin_2023"
+            referencedRelation: "Yangin_2023"
             referencedColumns: ["yangin_id"]
           },
         ]
       }
-      yangin_arac_2024: {
+      Yangin_arac_2024: {
         Row: {
           adet: number | null
           arac_tur_id: number | null
@@ -251,22 +251,22 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "yangin_arac_2024_arac_tur_id_fkey"
+            foreignKeyName: "Yangin_arac_2024_arac_tur_id_fkey"
             columns: ["arac_tur_id"]
             isOneToOne: false
-            referencedRelation: "arac"
+            referencedRelation: "Arac"
             referencedColumns: ["arac_tur_id"]
           },
           {
-            foreignKeyName: "yangin_arac_2024_yangin_id_fkey"
+            foreignKeyName: "Yangin_arac_2024_yangin_id_fkey"
             columns: ["yangin_id"]
             isOneToOne: false
-            referencedRelation: "yangin_2024"
+            referencedRelation: "Yangin_2024"
             referencedColumns: ["yangin_id"]
           },
         ]
       }
-      yangin_arac_2025: {
+      Yangin_arac_2025: {
         Row: {
           adet: number | null
           arac_tur_id: number | null
@@ -287,17 +287,17 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "yangin_arac_2025_arac_tur_id_fkey"
+            foreignKeyName: "Yangin_arac_2025_arac_tur_id_fkey"
             columns: ["arac_tur_id"]
             isOneToOne: false
-            referencedRelation: "arac"
+            referencedRelation: "Arac"
             referencedColumns: ["arac_tur_id"]
           },
           {
-            foreignKeyName: "yangin_arac_2025_yangin_id_fkey"
+            foreignKeyName: "Yangin_arac_2025_yangin_id_fkey"
             columns: ["yangin_id"]
             isOneToOne: false
-            referencedRelation: "yangin_2025"
+            referencedRelation: "Yangin_2025"
             referencedColumns: ["yangin_id"]
           },
         ]

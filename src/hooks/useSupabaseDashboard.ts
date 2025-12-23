@@ -37,9 +37,9 @@ const monthAliases = [
 ];
 
 const yearTable: Record<number, string> = {
-  2023: "yangin_2023",
-  2024: "yangin_2024",
-  2025: "yangin_2025",
+  2023: "Yangin_2023",
+  2024: "Yangin_2024",
+  2025: "Yangin_2025",
 };
 
 // Hard mapping isletme_ad -> districtId used by the map UI
@@ -85,7 +85,7 @@ export const useBusinesses = () =>
     queryFn: async (): Promise<Business[]> => {
       const [isletmeler, aracAsimi, tehlike, araclar] = await Promise.all([
         supabaseFetch(
-          supabase.from("isletme").select(`
+          supabase.from("Isletme").select(`
             isletme_id,
             isletme_ad
           `)
@@ -94,8 +94,8 @@ export const useBusinesses = () =>
         supabaseFetch(supabase.from("isletme_tehlike_siralama_view").select("*")),
         supabaseFetch(
           supabase
-            .from("isletme_arac")
-            .select("isletme_id, adet, arac(arac_tur_adi)")
+            .from("Isletme_arac")
+            .select("isletme_id, adet, Arac(arac_tur_adi)")
         ),
       ]);
 
