@@ -1,9 +1,10 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { getFireCauseData } from '@/data/mockData';
 import { AlertCircle } from 'lucide-react';
+import type { Business } from '@/types/forest';
+import { useFireCauseData } from '@/hooks/useSupabaseDashboard';
 
 interface FireCauseChartProps {
-  businessId?: string;
+  business?: Business | null;
 }
 
 const COLORS = [
@@ -13,8 +14,8 @@ const COLORS = [
   'hsl(var(--primary))',
 ];
 
-const FireCauseChart = ({ businessId }: FireCauseChartProps) => {
-  const data = getFireCauseData(businessId);
+const FireCauseChart = ({ business }: FireCauseChartProps) => {
+  const { data = [], isLoading } = useFireCauseData(business?.name);
 
   return (
     <div className="bg-card rounded-xl shadow-lg p-4 h-full animate-fade-in">
@@ -24,7 +25,7 @@ const FireCauseChart = ({ businessId }: FireCauseChartProps) => {
       </div>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 40 }}>
+          <BarChart data={isLoading ? [] : data} margin={{ top: 10, right: 10, left: -10, bottom: 40 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis 
               dataKey="cause" 
@@ -45,7 +46,7 @@ const FireCauseChart = ({ businessId }: FireCauseChartProps) => {
               formatter={(value: number) => [value, 'Yangın Sayısı']}
             />
             <Bar dataKey="count" name="Yangın Sayısı" radius={[4, 4, 0, 0]}>
-              {data.map((entry, index) => (
+              {(isLoading ? [] : data).map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Bar>

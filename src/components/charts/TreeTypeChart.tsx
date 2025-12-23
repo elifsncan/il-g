@@ -1,9 +1,10 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { getTreeTypeData } from '@/data/mockData';
 import { TreeDeciduous } from 'lucide-react';
+import type { Business } from '@/types/forest';
+import { useTreeTypeData } from '@/hooks/useSupabaseDashboard';
 
 interface TreeTypeChartProps {
-  businessId?: string;
+  business?: Business | null;
 }
 
 const COLORS = [
@@ -14,8 +15,8 @@ const COLORS = [
   'hsl(var(--earth))',
 ];
 
-const TreeTypeChart = ({ businessId }: TreeTypeChartProps) => {
-  const data = getTreeTypeData(businessId);
+const TreeTypeChart = ({ business }: TreeTypeChartProps) => {
+  const { data = [], isLoading } = useTreeTypeData(business?.name);
 
   return (
     <div className="bg-card rounded-xl shadow-lg p-4 h-full animate-fade-in">
@@ -27,7 +28,7 @@ const TreeTypeChart = ({ businessId }: TreeTypeChartProps) => {
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              data={data}
+              data={isLoading ? [] : data}
               cx="50%"
               cy="50%"
               labelLine={false}

@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import RegionMap from '@/components/RegionMap';
 import Dashboard from '@/components/Dashboard';
+import { useBusinesses } from '@/hooks/useSupabaseDashboard';
 
 const Index = () => {
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+  const { data: businesses = [], isLoading, error } = useBusinesses();
 
   return (
     <div className="min-h-screen bg-background">
@@ -16,6 +18,7 @@ const Index = () => {
           <aside className="lg:col-span-4 xl:col-span-3">
             <div className="lg:sticky lg:top-6">
               <RegionMap 
+                businesses={businesses}
                 selectedDistrict={selectedDistrict}
                 onDistrictSelect={setSelectedDistrict}
               />
@@ -24,7 +27,12 @@ const Index = () => {
 
           {/* Dashboard Main Area */}
           <section className="lg:col-span-8 xl:col-span-9">
-            <Dashboard selectedDistrict={selectedDistrict} />
+            <Dashboard 
+              businesses={businesses}
+              selectedDistrict={selectedDistrict} 
+              isLoading={isLoading}
+              errorMessage={error?.message}
+            />
           </section>
         </div>
       </main>

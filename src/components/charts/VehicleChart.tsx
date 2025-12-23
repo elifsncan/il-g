@@ -1,16 +1,9 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, ReferenceLine } from 'recharts';
-import { getVehicleData } from '@/data/mockData';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { Truck } from 'lucide-react';
+import { useVehicleData } from '@/hooks/useSupabaseDashboard';
 
-interface VehicleChartProps {
-  businessId?: string;
-}
-
-const VehicleChart = ({ businessId }: VehicleChartProps) => {
-  const data = getVehicleData();
-  const filteredData = businessId 
-    ? data.filter(d => d.businessName.toLowerCase().includes(businessId.split('-')[1]?.toLowerCase() || ''))
-    : data;
+const VehicleChart = () => {
+  const { data = [], isLoading } = useVehicleData();
 
   return (
     <div className="bg-card rounded-xl shadow-lg p-4 h-full animate-fade-in">
@@ -20,7 +13,7 @@ const VehicleChart = ({ businessId }: VehicleChartProps) => {
       </div>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={filteredData} margin={{ top: 10, right: 10, left: -10, bottom: 40 }}>
+          <BarChart data={isLoading ? [] : data} margin={{ top: 10, right: 10, left: -10, bottom: 40 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis 
               dataKey="businessName" 

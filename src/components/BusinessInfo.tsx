@@ -1,8 +1,10 @@
-import { businesses, districts } from '@/data/mockData';
+import { districts } from '@/data/mockData';
 import { Building2, Truck, AlertTriangle, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import type { Business } from '@/types/forest';
 
 interface BusinessInfoProps {
+  businesses: Business[];
   districtId: string | null;
 }
 
@@ -20,7 +22,7 @@ const dangerLabels = {
   critical: 'Kritik Risk',
 };
 
-const BusinessInfo = ({ districtId }: BusinessInfoProps) => {
+const BusinessInfo = ({ businesses, districtId }: BusinessInfoProps) => {
   if (!districtId) {
     return (
       <div className="bg-card rounded-xl shadow-lg p-6 animate-fade-in">
@@ -43,7 +45,9 @@ const BusinessInfo = ({ districtId }: BusinessInfoProps) => {
   if (!district || !business) return null;
 
   const vehicleExcess = business.usedInFireVehicles - business.totalVehicles;
-  const excessPercentage = ((vehicleExcess / business.totalVehicles) * 100).toFixed(1);
+  const excessPercentage = business.totalVehicles > 0 
+    ? ((vehicleExcess / business.totalVehicles) * 100).toFixed(1)
+    : '0';
 
   return (
     <div className="bg-card rounded-xl shadow-lg p-5 animate-slide-up">

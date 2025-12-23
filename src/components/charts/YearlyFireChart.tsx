@@ -1,13 +1,14 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { getYearlyFireData } from '@/data/mockData';
 import { TrendingUp } from 'lucide-react';
+import type { Business } from '@/types/forest';
+import { useYearlyFireData } from '@/hooks/useSupabaseDashboard';
 
 interface YearlyFireChartProps {
-  businessId?: string;
+  business?: Business | null;
 }
 
-const YearlyFireChart = ({ businessId }: YearlyFireChartProps) => {
-  const data = getYearlyFireData(businessId);
+const YearlyFireChart = ({ business }: YearlyFireChartProps) => {
+  const { data = [], isLoading } = useYearlyFireData(business?.id);
 
   return (
     <div className="bg-card rounded-xl shadow-lg p-4 h-full animate-fade-in">
@@ -17,7 +18,7 @@ const YearlyFireChart = ({ businessId }: YearlyFireChartProps) => {
       </div>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
+          <LineChart data={isLoading ? [] : data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="year" tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} />
             <YAxis tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} />

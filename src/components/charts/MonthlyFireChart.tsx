@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { getMonthlyFireData } from '@/data/mockData';
 import { Flame } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import type { Business } from '@/types/forest';
+import { useMonthlyFireData } from '@/hooks/useSupabaseDashboard';
 
 interface MonthlyFireChartProps {
-  businessId?: string;
+  business?: Business | null;
 }
 
 const availableYears = [2023, 2024, 2025];
 
-const MonthlyFireChart = ({ businessId }: MonthlyFireChartProps) => {
+const MonthlyFireChart = ({ business }: MonthlyFireChartProps) => {
   const [selectedYear, setSelectedYear] = useState<number>(2023);
-  const data = getMonthlyFireData(businessId, selectedYear);
+  const { data = [], isLoading } = useMonthlyFireData(business?.id, selectedYear);
 
   return (
     <div className="bg-card rounded-xl shadow-lg p-4 h-full animate-fade-in">
@@ -36,7 +37,7 @@ const MonthlyFireChart = ({ businessId }: MonthlyFireChartProps) => {
       </div>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
+          <AreaChart data={isLoading ? [] : data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
             <defs>
               <linearGradient id="colorFire" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="hsl(var(--fire-danger-high))" stopOpacity={0.8}/>

@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { districts, businesses } from '@/data/mockData';
+import { districts } from '@/data/mockData';
 import { TreePine } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import type { Business } from '@/types/forest';
 
 interface RegionMapProps {
+  businesses: Business[];
   selectedDistrict: string | null;
   onDistrictSelect: (districtId: string) => void;
 }
@@ -15,11 +17,6 @@ const dangerColors = {
   medium: { bg: 'bg-fire-medium', hex: '#eab308' },
   high: { bg: 'bg-fire-high', hex: '#f97316' },
   critical: { bg: 'bg-fire-critical', hex: '#ef4444' },
-};
-
-const getDistrictDanger = (districtId: string): 'low' | 'medium' | 'high' | 'critical' => {
-  const business = businesses.find(b => b.districtId === districtId);
-  return business?.dangerLevel || 'low';
 };
 
 const createCustomIcon = (danger: 'low' | 'medium' | 'high' | 'critical', isSelected: boolean) => {
@@ -54,10 +51,15 @@ const createCustomIcon = (danger: 'low' | 'medium' | 'high' | 'critical', isSele
   });
 };
 
-const RegionMap = ({ selectedDistrict, onDistrictSelect }: RegionMapProps) => {
+const RegionMap = ({ businesses, selectedDistrict, onDistrictSelect }: RegionMapProps) => {
   const mapRef = useRef<L.Map | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const markersRef = useRef<L.Marker[]>([]);
+
+  const getDistrictDanger = (districtId: string): 'low' | 'medium' | 'high' | 'critical' => {
+    const business = businesses.find(b => b.districtId === districtId);
+    return business?.dangerLevel || 'low';
+  };
 
   const groupedDistricts = districts.reduce((acc, district) => {
     if (!acc[district.province]) {
