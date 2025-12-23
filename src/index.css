@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 150 40% 10%;
 
-    --primary: 152 60% 28%;
+    --primary: 152 60% 22%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 150 25% 92%;
@@ -39,15 +39,15 @@
 
     --border: 150 20% 88%;
     --input: 150 20% 88%;
-    --ring: 152 60% 28%;
+    --ring: 152 60% 22%;
 
     --radius: 0.75rem;
 
     /* Custom Colors */
-    --forest-dark: 152 60% 18%;
-    --forest: 152 60% 28%;
-    --forest-light: 152 45% 40%;
-    --leaf: 142 55% 50%;
+    --forest-dark: 152 60% 14%;
+    --forest: 152 60% 22%;
+    --forest-light: 152 45% 34%;
+    --leaf: 142 55% 44%;
     --earth: 30 30% 35%;
     --fire-danger-low: 142 71% 45%;
     --fire-danger-medium: 48 96% 53%;
@@ -55,24 +55,24 @@
     --fire-danger-critical: 0 72% 51%;
 
     /* Gradients */
-    --gradient-forest: linear-gradient(135deg, hsl(152 60% 28%), hsl(142 55% 50%));
-    --gradient-header: linear-gradient(90deg, hsl(152 60% 18%), hsl(152 60% 28%));
+    --gradient-forest: linear-gradient(135deg, hsl(152 60% 22%), hsl(142 55% 44%));
+    --gradient-header: linear-gradient(90deg, hsl(152 60% 14%), hsl(152 60% 22%));
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(150 20% 97%));
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(150 20% 10% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(150 20% 10% / 0.08), 0 2px 4px -1px hsl(150 20% 10% / 0.04);
     --shadow-lg: 0 10px 15px -3px hsl(150 20% 10% / 0.1), 0 4px 6px -2px hsl(150 20% 10% / 0.05);
-    --shadow-glow: 0 0 20px hsl(152 60% 28% / 0.2);
+    --shadow-glow: 0 0 20px hsl(152 60% 22% / 0.2);
 
     --sidebar-background: 150 20% 97%;
     --sidebar-foreground: 150 40% 10%;
-    --sidebar-primary: 152 60% 28%;
+    --sidebar-primary: 152 60% 22%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 150 25% 92%;
     --sidebar-accent-foreground: 152 60% 20%;
     --sidebar-border: 150 20% 88%;
-    --sidebar-ring: 152 60% 28%;
+    --sidebar-ring: 152 60% 22%;
   }
 
   .dark {
