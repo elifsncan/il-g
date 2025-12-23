@@ -3,6 +3,7 @@ export interface District {
   name: string;
   province: string;
   coordinates: { x: number; y: number };
+  latLng: [number, number]; // [lat, lng] for Leaflet
 }
 
 export interface VehicleType {

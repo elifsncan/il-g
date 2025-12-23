@@ -2,19 +2,19 @@ import { District, Business, FireData, MonthlyFireData, YearlyFireData, TreeType
 
 export const districts: District[] = [
   // Bursa
-  { id: 'bursa-merkez', name: 'Merkez', province: 'Bursa', coordinates: { x: 45, y: 35 } },
-  { id: 'bursa-gemlik', name: 'Gemlik', province: 'Bursa', coordinates: { x: 55, y: 25 } },
-  { id: 'bursa-inegol', name: 'İnegöl', province: 'Bursa', coordinates: { x: 65, y: 45 } },
-  { id: 'bursa-iznik', name: 'İznik', province: 'Bursa', coordinates: { x: 70, y: 30 } },
-  { id: 'bursa-karacabey', name: 'Karacabey', province: 'Bursa', coordinates: { x: 25, y: 40 } },
-  { id: 'bursa-keles', name: 'Keles', province: 'Bursa', coordinates: { x: 40, y: 55 } },
-  { id: 'bursa-mkpasa', name: 'Mustafakemalpaşa', province: 'Bursa', coordinates: { x: 35, y: 60 } },
-  { id: 'bursa-orhaneli', name: 'Orhaneli', province: 'Bursa', coordinates: { x: 50, y: 65 } },
+  { id: 'bursa-merkez', name: 'Merkez', province: 'Bursa', coordinates: { x: 45, y: 35 }, latLng: [40.1885, 29.0610] },
+  { id: 'bursa-gemlik', name: 'Gemlik', province: 'Bursa', coordinates: { x: 55, y: 25 }, latLng: [40.4364, 29.1561] },
+  { id: 'bursa-inegol', name: 'İnegöl', province: 'Bursa', coordinates: { x: 65, y: 45 }, latLng: [40.0781, 29.5134] },
+  { id: 'bursa-iznik', name: 'İznik', province: 'Bursa', coordinates: { x: 70, y: 30 }, latLng: [40.4294, 29.7206] },
+  { id: 'bursa-karacabey', name: 'Karacabey', province: 'Bursa', coordinates: { x: 25, y: 40 }, latLng: [40.2131, 28.3625] },
+  { id: 'bursa-keles', name: 'Keles', province: 'Bursa', coordinates: { x: 40, y: 55 }, latLng: [39.9136, 29.2269] },
+  { id: 'bursa-mkpasa', name: 'Mustafakemalpaşa', province: 'Bursa', coordinates: { x: 35, y: 60 }, latLng: [40.0333, 28.4000] },
+  { id: 'bursa-orhaneli', name: 'Orhaneli', province: 'Bursa', coordinates: { x: 50, y: 65 }, latLng: [39.9039, 28.9886] },
   // Bilecik
-  { id: 'bilecik-merkez', name: 'Merkez', province: 'Bilecik', coordinates: { x: 80, y: 55 } },
-  { id: 'bilecik-bozuyuk', name: 'Bozüyük', province: 'Bilecik', coordinates: { x: 75, y: 65 } },
+  { id: 'bilecik-merkez', name: 'Merkez', province: 'Bilecik', coordinates: { x: 80, y: 55 }, latLng: [40.0567, 30.0667] },
+  { id: 'bilecik-bozuyuk', name: 'Bozüyük', province: 'Bilecik', coordinates: { x: 75, y: 65 }, latLng: [39.9075, 30.0353] },
   // Yalova
-  { id: 'yalova-merkez', name: 'Merkez', province: 'Yalova', coordinates: { x: 60, y: 15 } },
+  { id: 'yalova-merkez', name: 'Merkez', province: 'Yalova', coordinates: { x: 60, y: 15 }, latLng: [40.6550, 29.2769] },
 ];
 
 export const businesses: Business[] = [
