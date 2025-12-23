@@ -14,10 +14,360 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      arac: {
+        Row: {
+          arac_tur_adi: string | null
+          arac_tur_id: number
+        }
+        Insert: {
+          arac_tur_adi?: string | null
+          arac_tur_id?: never
+        }
+        Update: {
+          arac_tur_adi?: string | null
+          arac_tur_id?: never
+        }
+        Relationships: []
+      }
+      isletme: {
+        Row: {
+          isletme_ad: string | null
+          isletme_id: number
+        }
+        Insert: {
+          isletme_ad?: string | null
+          isletme_id?: never
+        }
+        Update: {
+          isletme_ad?: string | null
+          isletme_id?: never
+        }
+        Relationships: []
+      }
+      isletme_arac: {
+        Row: {
+          adet: number | null
+          arac_tur_id: number | null
+          isletme_arac_id: number
+          isletme_id: number | null
+        }
+        Insert: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          isletme_arac_id?: never
+          isletme_id?: number | null
+        }
+        Update: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          isletme_arac_id?: never
+          isletme_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "isletme_arac_arac_tur_id_fkey"
+            columns: ["arac_tur_id"]
+            isOneToOne: false
+            referencedRelation: "arac"
+            referencedColumns: ["arac_tur_id"]
+          },
+          {
+            foreignKeyName: "isletme_arac_isletme_id_fkey"
+            columns: ["isletme_id"]
+            isOneToOne: false
+            referencedRelation: "isletme"
+            referencedColumns: ["isletme_id"]
+          },
+        ]
+      }
+      yangin_2023: {
+        Row: {
+          agac_tur: string | null
+          isletme_id: number | null
+          kullanilan_personel_sayisi: number | null
+          yangin_ay: string | null
+          yangin_id: number
+          yangin_il: string | null
+          yangin_neden: string | null
+        }
+        Insert: {
+          agac_tur?: string | null
+          isletme_id?: number | null
+          kullanilan_personel_sayisi?: number | null
+          yangin_ay?: string | null
+          yangin_id?: never
+          yangin_il?: string | null
+          yangin_neden?: string | null
+        }
+        Update: {
+          agac_tur?: string | null
+          isletme_id?: number | null
+          kullanilan_personel_sayisi?: number | null
+          yangin_ay?: string | null
+          yangin_id?: never
+          yangin_il?: string | null
+          yangin_neden?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "yangin_2023_isletme_id_fkey"
+            columns: ["isletme_id"]
+            isOneToOne: false
+            referencedRelation: "isletme"
+            referencedColumns: ["isletme_id"]
+          },
+        ]
+      }
+      yangin_2024: {
+        Row: {
+          agac_tur: string | null
+          isletme_id: number | null
+          kullanilan_personel_sayisi: number | null
+          yangin_ay: string | null
+          yangin_id: number
+          yangin_il: string | null
+          yangin_neden: string | null
+        }
+        Insert: {
+          agac_tur?: string | null
+          isletme_id?: number | null
+          kullanilan_personel_sayisi?: number | null
+          yangin_ay?: string | null
+          yangin_id?: never
+          yangin_il?: string | null
+          yangin_neden?: string | null
+        }
+        Update: {
+          agac_tur?: string | null
+          isletme_id?: number | null
+          kullanilan_personel_sayisi?: number | null
+          yangin_ay?: string | null
+          yangin_id?: never
+          yangin_il?: string | null
+          yangin_neden?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "yangin_2024_isletme_id_fkey"
+            columns: ["isletme_id"]
+            isOneToOne: false
+            referencedRelation: "isletme"
+            referencedColumns: ["isletme_id"]
+          },
+        ]
+      }
+      yangin_2025: {
+        Row: {
+          agac_tur: string | null
+          isletme_id: number | null
+          kullanilan_personel_sayisi: number | null
+          yangin_ay: string | null
+          yangin_id: number
+          yangin_il: string | null
+          yangin_neden: string | null
+        }
+        Insert: {
+          agac_tur?: string | null
+          isletme_id?: number | null
+          kullanilan_personel_sayisi?: number | null
+          yangin_ay?: string | null
+          yangin_id?: never
+          yangin_il?: string | null
+          yangin_neden?: string | null
+        }
+        Update: {
+          agac_tur?: string | null
+          isletme_id?: number | null
+          kullanilan_personel_sayisi?: number | null
+          yangin_ay?: string | null
+          yangin_id?: never
+          yangin_il?: string | null
+          yangin_neden?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "yangin_2025_isletme_id_fkey"
+            columns: ["isletme_id"]
+            isOneToOne: false
+            referencedRelation: "isletme"
+            referencedColumns: ["isletme_id"]
+          },
+        ]
+      }
+      yangin_arac_2023: {
+        Row: {
+          adet: number | null
+          arac_tur_id: number | null
+          yangin_arac_id: number
+          yangin_id: number | null
+        }
+        Insert: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          yangin_arac_id?: never
+          yangin_id?: number | null
+        }
+        Update: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          yangin_arac_id?: never
+          yangin_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "yangin_arac_2023_arac_tur_id_fkey"
+            columns: ["arac_tur_id"]
+            isOneToOne: false
+            referencedRelation: "arac"
+            referencedColumns: ["arac_tur_id"]
+          },
+          {
+            foreignKeyName: "yangin_arac_2023_yangin_id_fkey"
+            columns: ["yangin_id"]
+            isOneToOne: false
+            referencedRelation: "yangin_2023"
+            referencedColumns: ["yangin_id"]
+          },
+        ]
+      }
+      yangin_arac_2024: {
+        Row: {
+          adet: number | null
+          arac_tur_id: number | null
+          yangin_arac_id: number
+          yangin_id: number | null
+        }
+        Insert: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          yangin_arac_id?: never
+          yangin_id?: number | null
+        }
+        Update: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          yangin_arac_id?: never
+          yangin_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "yangin_arac_2024_arac_tur_id_fkey"
+            columns: ["arac_tur_id"]
+            isOneToOne: false
+            referencedRelation: "arac"
+            referencedColumns: ["arac_tur_id"]
+          },
+          {
+            foreignKeyName: "yangin_arac_2024_yangin_id_fkey"
+            columns: ["yangin_id"]
+            isOneToOne: false
+            referencedRelation: "yangin_2024"
+            referencedColumns: ["yangin_id"]
+          },
+        ]
+      }
+      yangin_arac_2025: {
+        Row: {
+          adet: number | null
+          arac_tur_id: number | null
+          yangin_arac_id: number
+          yangin_id: number | null
+        }
+        Insert: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          yangin_arac_id?: never
+          yangin_id?: number | null
+        }
+        Update: {
+          adet?: number | null
+          arac_tur_id?: number | null
+          yangin_arac_id?: never
+          yangin_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "yangin_arac_2025_arac_tur_id_fkey"
+            columns: ["arac_tur_id"]
+            isOneToOne: false
+            referencedRelation: "arac"
+            referencedColumns: ["arac_tur_id"]
+          },
+          {
+            foreignKeyName: "yangin_arac_2025_yangin_id_fkey"
+            columns: ["yangin_id"]
+            isOneToOne: false
+            referencedRelation: "yangin_2025"
+            referencedColumns: ["yangin_id"]
+          },
+        ]
+      }
     }
     Views: {
-      [_ in never]: never
+      isletme_arac_asimi_view: {
+        Row: {
+          arac_asimi: number | null
+          isletme_ad: string | null
+          isletme_toplam_arac: number | null
+          yanginda_kullanilan_arac: number | null
+        }
+        Relationships: []
+      }
+      isletme_tehlike_siralama_view: {
+        Row: {
+          isletme_ad: string | null
+          tehlike_turu: string | null
+          yangin_sayisi: number | null
+        }
+        Relationships: []
+      }
+      isletme_yangin_nedenleri_view: {
+        Row: {
+          isletme_ad: string | null
+          yangin_neden: string | null
+          yangin_sayisi: number | null
+        }
+        Relationships: []
+      }
+      tehlikeli_yangin_agac_view: {
+        Row: {
+          agac_tur: string | null
+          isletme_ad: string | null
+          yangin_sayisi: number | null
+        }
+        Relationships: []
+      }
+      tum_yillar_yangin: {
+        Row: {
+          isletme_id: number | null
+          yangin_id: number | null
+        }
+        Relationships: []
+      }
+      tum_yillar_yangin_arac: {
+        Row: {
+          adet: number | null
+          arac_tur_id: number | null
+          yangin_id: number | null
+        }
+        Relationships: []
+      }
+      tum_yillar_yangin_detay: {
+        Row: {
+          isletme_id: number | null
+          yangin_neden: string | null
+        }
+        Relationships: []
+      }
+      yangin_analiz_view: {
+        Row: {
+          isletme_id: number | null
+          kullanilan_personel_sayisi: number | null
+          tehlike_seviyesi: string | null
+          yangin_ay: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
